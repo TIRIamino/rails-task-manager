@@ -1,0 +1,34 @@
+<!-- <div class= "container">
+  <h1>Tasks list</h1>
+
+  <% @tasks.each do |task| %>
+    <h2><%= task.title %></h2>
+    <p><%= task.details %></p>
+    <input id="input" type="checkbox" <%= 'checked' if task.completed == true %>>
+
+  <% end %>
+
+</div> -->
+
+
+
+
+<div class="container">
+  <h1>My Tasks</h1>
+
+    <% @tasks.each do |task| %>
+
+      <input type="checkbox" name="details" <%= 'checked' if task.completed == true %>>
+
+      <label for="details"><%= link_to task.title, show_task_path(task) %></label>
+      <%= link_to task_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="fab fab-bin" id="delete">Delete</i>
+            <% end %>
+    <% end %>
+
+</div>
+
+
+
